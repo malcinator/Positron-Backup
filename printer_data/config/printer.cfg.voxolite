@@ -209,9 +209,10 @@ hold_current: 0.3
 #   Bed Heater
 #####################################################################
 ## Voxolite Glass Bed
+
 [heater_bed]
 heater_pin: gpio21
-sensor_type: ATC Semitec 104NT-4-R025H42G
+sensor_type: generic 3950
 sensor_pin: gpio26
 pwm_cycle_time: 0.015
 max_power: 1.0
@@ -222,38 +223,10 @@ pid_Kd: 383.75
 min_temp: -100
 max_temp: 85
 
-## PCB Bed
-#[thermistor SDNT2012X104_3950]
-resistance1: 100000
-##temperature1: 25
-#beta: 3950
-
-#[heater_bed]
-#heater_pin: gpio21
-#sensor_type: SDNT2012X104_3950
-#sensor_pin: gpio26
-max_power: 1.0
-#control: pid
-###pwm_cycle_time: 0.3
-#pid_Kp: 56.852
-#pid_Ki: 2.1
-#pid_Kd: 383.75
-#min_temp: 0
-#max_temp: 85    ;85 for glass bed, may set to 115 for PCB bed
-
-[heater_bed]
-heater_pin: gpio21
-sensor_type: SDNT2012X104_3950
-#sensor_type: Trianglelab NTC100K B3950
-sensor_pin: gpio26
-pwm_cycle_time: 0.3
-max_power: 1.0
-#control: pid
-#pid_Kp: 56.852
-#pid_Ki: 2.1
-#pid_Kd: 383.75
-min_temp: 0
-max_temp: 85    ;85 for glass bed, may set to 115 for PCB bed
+[verify_heater heater_bed]
+max_error: 120
+hysteresis: 10
+check_gain_time: 120
 
 #####################################################################
 #   Probe
